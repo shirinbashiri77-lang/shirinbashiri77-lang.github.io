@@ -1,0 +1,853 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="google-site-verification" content="s6pKsD7vfIiSxou_0L50ucrj7Ot28FdPBRwJSXpz840" />
+  <link rel="icon" href="data:," />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Public+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <title>Shirin Bashiri</title>
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://shirinbashiri77-lang.github.io/" />
+  <meta property="og:title" content="Shirin Bashiri — Data Analysis Portfolio" />
+  <meta property="og:description" content="Three data analysis projects using SPSS and Julius AI: student lifestyle, mental health and stress; AI training and productivity; and education, gender and income in Toronto." />
+  <meta property="og:image" content="https://shirinbashiri77-lang.github.io/shirin-bashiri.jpg" />
+  <meta property="og:image:alt" content="Shirin Bashiri" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Shirin Bashiri — Data Analysis Portfolio" />
+  <meta name="twitter:description" content="Three data analysis projects using SPSS and Julius AI: student lifestyle, mental health and stress; AI training and productivity; and education, gender and income in Toronto." />
+  <meta name="twitter:image" content="https://shirinbashiri77-lang.github.io/shirin-bashiri.jpg" />
+  <meta name="twitter:image:alt" content="Shirin Bashiri" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Shirin Bashiri",
+    "alternateName": "شیرین بشیری",
+    "url": "https://shirinbashiri77-lang.github.io/",
+    "image": "https://shirinbashiri77-lang.github.io/shirin-bashiri.jpg",
+    "jobTitle": "Quantitative Sociology Researcher",
+    "description": "Data analyst and sociology researcher using SPSS and Julius AI.",
+    "sameAs": [
+      "https://www.linkedin.com/in/shirin-bashiri-26635a2b8",
+      "https://github.com/shirinbashiri77-lang"
+    ]
+  }
+  </script>
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg: #f5f7f6;
+      --surface: #ffffff;
+      --surface-2: #e9efed;
+      --ink: #10201c;
+      --muted: #51635e;
+      --line: #c9d3d0;
+      --strong-line: #80938d;
+      --accent: #e44d34;
+      --accent-soft: #ffe1da;
+      --teal: #087f74;
+      --teal-soft: #d6efeb;
+      --navy: #17344d;
+      --violet: #5b4bc4;
+      --violet-soft: #e6e2fb;
+      --gold: #c98a1b;
+      --gold-soft: #fbeed3;
+      --paper-shadow: 0 18px 54px rgba(16, 32, 28, .09);
+      --max: 1180px;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0d1513;
+        --surface: #15201d;
+        --surface-2: #1d2b27;
+        --ink: #eff7f4;
+        --muted: #acbbb6;
+        --line: #31443e;
+        --strong-line: #6f827c;
+        --accent: #ff755d;
+        --accent-soft: #3f211d;
+        --teal: #49c9bd;
+        --teal-soft: #173b37;
+        --navy: #b7d9f2;
+        --violet: #a394f5;
+        --violet-soft: #262052;
+        --gold: #e8b34a;
+        --gold-soft: #3a2f16;
+        --paper-shadow: 0 18px 54px rgba(0, 0, 0, .28);
+      }
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "Public Sans", sans-serif;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+    button, a { font: inherit; }
+    a { color: inherit; }
+    a:focus-visible, button:focus-visible { outline: 3px solid var(--teal); outline-offset: 3px; }
+    .wrap { width: min(var(--max), calc(100% - 40px)); margin: 0 auto; }
+
+    .intro {
+      min-height: 86vh;
+      display: grid;
+      align-items: center;
+      padding: 64px 0 48px;
+      border-bottom: 1px solid var(--line);
+      background:
+        radial-gradient(640px 320px at 88% -10%, color-mix(in srgb, var(--teal) 14%, transparent), transparent 70%),
+        radial-gradient(560px 300px at -5% 108%, color-mix(in srgb, var(--violet) 13%, transparent), transparent 70%);
+    }
+    .intro-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(280px, .75fr);
+      gap: clamp(36px, 7vw, 96px);
+      align-items: end;
+    }
+    .overline, .mono {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: .78rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .overline { color: var(--teal); margin: 0 0 22px; font-weight: 500; }
+    h1 {
+      font-size: clamp(3.3rem, 8vw, 7.9rem);
+      line-height: .88;
+      letter-spacing: -.075em;
+      margin: 0;
+      max-width: 860px;
+      font-weight: 800;
+    }
+    h1 span { color: var(--accent); }
+    .intro-copy { max-width: 34rem; }
+    .intro-copy p {
+      margin: 0 0 28px;
+      font-size: clamp(1.05rem, 1.8vw, 1.35rem);
+      color: var(--muted);
+    }
+    .tool-line {
+      display: flex;
+      gap: 9px;
+      flex-wrap: wrap;
+      margin-bottom: 34px;
+    }
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      min-height: 34px;
+      padding: 7px 13px;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: .78rem;
+      font-weight: 500;
+    }
+    .tool-line .chip:nth-child(1) { background: var(--teal-soft); color: var(--teal); }
+    .tool-line .chip:nth-child(2) { background: var(--accent-soft); color: var(--accent); }
+    .tool-line .chip:nth-child(3) { background: var(--violet-soft); color: var(--violet); }
+    .tool-line .chip:nth-child(4) { background: var(--gold-soft); color: var(--gold); }
+    .tool-line .chip:nth-child(5) { background: var(--surface-2); color: var(--muted); }
+    .hero-viz {
+      margin-top: 52px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 18px 20px 12px;
+      box-shadow: var(--paper-shadow);
+    }
+    .hero-viz svg { display: block; width: 100%; height: auto; }
+    .hero-viz figcaption { color: var(--muted); font-size: .78rem; margin-top: 10px; font-family: "IBM Plex Mono", monospace; }
+    .jump {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      font-weight: 700;
+      border-bottom: 2px solid var(--ink);
+      padding-bottom: 5px;
+    }
+    .jump::after { content: "↓"; color: var(--accent); }
+
+    .ticker {
+      border-bottom: 1px solid var(--line);
+      background: var(--surface);
+    }
+    .ticker-inner {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+    .fact {
+      padding: 20px 24px;
+      border-left: 1px solid var(--line);
+    }
+    .fact:first-child { border-left: 0; }
+    .fact strong { display: block; font-size: 1.35rem; line-height: 1.1; }
+    .fact span { color: var(--muted); font-size: .78rem; }
+    .fact:nth-child(1) strong { color: var(--teal); }
+    .fact:nth-child(2) strong { color: var(--accent); }
+    .fact:nth-child(3) strong { color: var(--violet); }
+    .fact:nth-child(4) strong { color: var(--gold); }
+
+    .projects { padding: 96px 0 32px; }
+    .section-head {
+      display: grid;
+      grid-template-columns: 190px 1fr;
+      gap: 30px;
+      align-items: start;
+      margin-bottom: 42px;
+    }
+    .section-head h2 {
+      margin: 0;
+      font-size: clamp(2.2rem, 5vw, 4.5rem);
+      line-height: .98;
+      letter-spacing: -.055em;
+    }
+    .section-head p { margin: 9px 0 0; color: var(--muted); max-width: 590px; }
+
+    .project-tabs {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      border: 1px solid var(--line);
+      background: var(--surface);
+      margin-bottom: 24px;
+    }
+    .project-tab {
+      border: 0;
+      background: transparent;
+      color: var(--muted);
+      text-align: left;
+      padding: 22px 24px;
+      cursor: pointer;
+      border-right: 1px solid var(--line);
+      transition: background .2s ease, color .2s ease;
+    }
+    .project-tab:last-child { border-right: 0; }
+    .project-tab .num {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: .72rem;
+      display: block;
+      margin-bottom: 5px;
+    }
+    .project-tab strong { font-size: 1rem; }
+    #tab-student[aria-selected="true"] { color: var(--ink); background: var(--teal-soft); }
+    #tab-ai[aria-selected="true"] { color: var(--ink); background: var(--accent-soft); }
+    #tab-toronto[aria-selected="true"] { color: var(--ink); background: var(--violet-soft); }
+
+    .project-panel { display: none; }
+    .project-panel.active { display: block; }
+    .project-sheet {
+      background: var(--surface);
+      border-top: 5px solid var(--ink);
+      box-shadow: var(--paper-shadow);
+      border-radius: 14px;
+      overflow: hidden;
+    }
+    #project-student .project-sheet { border-top-color: var(--teal); }
+    #project-ai .project-sheet { border-top-color: var(--accent); }
+    #project-toronto .project-sheet { border-top-color: var(--violet); }
+    #project-student .project-kicker { color: var(--teal); }
+    #project-ai .project-kicker { color: var(--accent); }
+    #project-toronto .project-kicker { color: var(--violet); }
+    #project-student .metric { border-bottom-color: var(--teal); }
+    #project-ai .metric { border-bottom-color: var(--accent); }
+    #project-toronto .metric { border-bottom-color: var(--violet); }
+    .project-hero {
+      padding: clamp(30px, 6vw, 72px);
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(280px, .85fr);
+      gap: clamp(34px, 7vw, 90px);
+      border-bottom: 1px solid var(--line);
+    }
+    .project-kicker { color: var(--accent); margin: 0 0 18px; }
+    .project-hero h3 {
+      font-size: clamp(2.25rem, 5vw, 4.7rem);
+      line-height: .98;
+      letter-spacing: -.055em;
+      margin: 0 0 24px;
+      max-width: 850px;
+    }
+    .project-lede { font-size: 1.08rem; color: var(--muted); margin: 0; max-width: 690px; }
+    .project-meta { border-top: 1px solid var(--strong-line); }
+    .meta-row {
+      display: grid;
+      grid-template-columns: 110px 1fr;
+      gap: 18px;
+      border-bottom: 1px solid var(--line);
+      padding: 15px 0;
+      font-size: .9rem;
+    }
+    .meta-row span:first-child { color: var(--muted); font-family: "IBM Plex Mono", monospace; font-size: .75rem; text-transform: uppercase; letter-spacing: .04em; }
+
+    .project-body {
+      display: grid;
+      grid-template-columns: minmax(0, .78fr) minmax(0, 1.22fr);
+      gap: 0;
+    }
+    .narrative { padding: clamp(30px, 5vw, 60px); border-right: 1px solid var(--line); }
+    .visuals { padding: clamp(30px, 5vw, 60px); background: var(--surface-2); }
+    .body-label { color: var(--teal); margin: 0 0 14px; }
+    .narrative h4, .visuals h4 { font-size: 1.55rem; letter-spacing: -.025em; margin: 0 0 18px; line-height: 1.15; }
+    .narrative p { color: var(--muted); margin: 0 0 26px; }
+    .finding-list { list-style: none; padding: 0; margin: 34px 0 0; border-top: 1px solid var(--line); }
+    .finding-list li {
+      display: grid;
+      grid-template-columns: 52px 1fr;
+      gap: 14px;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .finding-list .marker { font-family: "IBM Plex Mono", monospace; color: var(--accent); font-weight: 500; }
+    .finding-list strong { display: block; margin-bottom: 4px; }
+    .finding-list span:last-child { color: var(--muted); font-size: .92rem; }
+
+    .metric-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-bottom: 28px;
+    }
+    .metric {
+      padding: 16px;
+      background: var(--surface);
+      min-height: 104px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border-bottom: 3px solid var(--teal);
+      border-radius: 10px;
+    }
+    .metric strong { font-size: clamp(1.35rem, 2.8vw, 2rem); letter-spacing: -.04em; line-height: 1; }
+    .metric span { color: var(--muted); font-size: .75rem; }
+    .chart-card { background: var(--surface); padding: 20px; border-radius: 12px; }
+    .chart-title { display: flex; justify-content: space-between; gap: 16px; margin-bottom: 12px; align-items: baseline; }
+    .chart-title strong { font-size: .92rem; }
+    .chart-title span { color: var(--muted); font-size: .72rem; font-family: "IBM Plex Mono", monospace; }
+    .chart-card svg { display: block; width: 100%; height: auto; overflow: visible; }
+    .chart-note { color: var(--muted); font-size: .78rem; margin: 14px 0 0; }
+    .axis-label { fill: var(--muted); font: 10px "IBM Plex Mono", monospace; }
+    .value-label { fill: var(--ink); font: 600 11px "Public Sans", sans-serif; }
+    .gridline { stroke: var(--line); stroke-width: 1; }
+    .bar-negative { fill: var(--teal); }
+    .bar-positive { fill: var(--accent); }
+    .bar-neutral { fill: var(--navy); }
+
+    .project-actions {
+      padding: 22px clamp(30px, 5vw, 60px);
+      border-top: 1px solid var(--line);
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .download {
+      display: inline-flex;
+      gap: 10px;
+      align-items: center;
+      text-decoration: none;
+      background: var(--ink);
+      color: var(--bg);
+      padding: 12px 16px;
+      font-weight: 700;
+      border-radius: 8px;
+    }
+    .download.secondary { background: transparent; color: var(--ink); border: 1px solid var(--strong-line); }
+    .download::after { content: "↘"; color: var(--accent); }
+
+    .method { padding: 112px 0; background: linear-gradient(180deg, transparent, var(--surface-2) 20%, var(--surface-2) 80%, transparent); }
+    .method-grid { display: grid; grid-template-columns: .82fr 1.18fr; gap: clamp(50px, 9vw, 120px); align-items: start; }
+    .method h2 { font-size: clamp(2.45rem, 5vw, 4.7rem); line-height: .98; letter-spacing: -.06em; margin: 0 0 22px; }
+    .method-intro { color: var(--muted); max-width: 520px; font-size: 1.06rem; }
+    .steps { counter-reset: method; border-top: 2px solid var(--ink); }
+    .step { counter-increment: method; display: grid; grid-template-columns: 54px 1fr; gap: 18px; padding: 24px 0; border-bottom: 1px solid var(--line); }
+    .step::before { content: "0" counter(method); font-family: "IBM Plex Mono", monospace; color: var(--accent); font-size: .85rem; }
+    .step h3 { margin: 0 0 5px; font-size: 1.15rem; }
+    .step p { margin: 0; color: var(--muted); font-size: .92rem; }
+
+    .contact {
+      padding: 88px 0;
+      border-top: 1px solid var(--line);
+      background: var(--surface);
+    }
+    .contact-grid { display: grid; grid-template-columns: 190px 1fr; gap: 30px; align-items: start; }
+    .contact h2 {
+      margin: 0 0 28px;
+      font-size: clamp(2.35rem, 5vw, 4.7rem);
+      line-height: .98;
+      letter-spacing: -.055em;
+      max-width: 760px;
+    }
+    .contact-links { border-top: 2px solid var(--ink); }
+    .contact-link {
+      display: grid;
+      grid-template-columns: 120px minmax(0, 1fr) auto;
+      gap: 20px;
+      align-items: center;
+      padding: 22px 0;
+      border-bottom: 1px solid var(--line);
+      text-decoration: none;
+    }
+    .contact-link .mono { color: var(--muted); }
+    .contact-link strong { overflow-wrap: anywhere; }
+    .contact-link::after { content: "↗"; color: var(--accent); font-size: 1.2rem; }
+    .contact-link:hover strong { color: var(--teal); }
+
+    .about {
+      background: linear-gradient(120deg, #10201c 0%, #17344d 55%, #3d3480 100%);
+      color: var(--bg);
+      padding: 88px 0;
+    }
+    .about-grid { display: grid; grid-template-columns: 190px 1fr; gap: 30px; }
+    .about .overline { color: var(--accent); }
+    .about blockquote { margin: 0; font-size: clamp(1.9rem, 4.3vw, 4rem); line-height: 1.08; letter-spacing: -.045em; max-width: 900px; }
+    .about footer { margin-top: 26px; color: var(--bg); opacity: .72; }
+    .about-photo {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--gold);
+      margin-top: 22px;
+      display: block;
+    }
+
+    @media (max-width: 900px) {
+      .intro { min-height: auto; }
+      .intro-grid, .project-hero, .project-body, .method-grid { grid-template-columns: 1fr; }
+      .intro-copy { padding-top: 16px; }
+      .project-body .narrative { border-right: 0; border-bottom: 1px solid var(--line); }
+      .ticker-inner { grid-template-columns: 1fr 1fr; }
+      .fact:nth-child(3) { border-left: 0; border-top: 1px solid var(--line); }
+      .fact:nth-child(4) { border-top: 1px solid var(--line); }
+    }
+    @media (max-width: 640px) {
+      .wrap { width: min(100% - 24px, var(--max)); }
+      .intro { padding-top: 44px; }
+      h1 { font-size: clamp(3.1rem, 17vw, 5.4rem); }
+      .section-head, .contact-grid, .about-grid { grid-template-columns: 1fr; gap: 10px; }
+      .projects { padding-top: 72px; }
+      .project-tabs { grid-template-columns: 1fr; }
+      .project-tab { border-right: 0; border-bottom: 1px solid var(--line); }
+      .project-tab:last-child { border-bottom: 0; }
+      .project-hero { padding: 28px 20px 32px; }
+      .narrative, .visuals { padding: 28px 20px; }
+      .project-actions { padding: 20px; align-items: stretch; }
+      .download { width: 100%; justify-content: space-between; }
+      .metric-grid { grid-template-columns: 1fr 1fr; }
+      .metric:last-child { grid-column: 1 / -1; }
+      .meta-row { grid-template-columns: 86px 1fr; }
+      .ticker-inner { grid-template-columns: 1fr 1fr; }
+      .fact { padding: 16px 12px; }
+      .method { padding: 80px 0; }
+      .contact { padding: 70px 0; }
+      .contact-link { grid-template-columns: 1fr auto; gap: 8px 16px; }
+      .contact-link .mono { grid-column: 1 / -1; }
+      .about { padding: 70px 0; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="intro">
+      <div class="wrap intro-grid">
+        <div>
+          <p class="overline">Shirin Bashiri</p>
+          <h1>Evidence,<br><span>cleaned.</span></h1>
+        </div>
+        <div class="intro-copy">
+          <p>Three large-scale research projects transformed from raw public data into rigorous SPSS analysis, revised interpretation, and decision-ready visual storytelling.</p>
+          <div class="tool-line" aria-label="Tools used">
+            <span class="chip">SPSS</span>
+            <span class="chip">Julius AI</span>
+            <span class="chip">Gemini</span>
+            <span class="chip">Claude</span>
+            <span class="chip">Kaggle data</span>
+          </div>
+          <a class="jump" href="#projects">Explore the work</a>
+        </div>
+      </div>
+      <figure class="hero-viz wrap" aria-hidden="true">
+        <svg viewBox="0 0 1200 150" role="presentation">
+          <line x1="20" y1="32" x2="1180" y2="32" stroke="#d8dfdc" stroke-width="1" />
+          <line x1="20" y1="72" x2="1180" y2="72" stroke="#d8dfdc" stroke-width="1" />
+          <line x1="20" y1="112" x2="1180" y2="112" stroke="#d8dfdc" stroke-width="1" />
+          <line x1="20" y1="132" x2="1180" y2="132" stroke="#b9c6cf" stroke-width="1.5" />
+          <rect x="30" y="77" width="34" height="55" rx="3" fill="#0e8a7d" />
+          <rect x="102" y="47" width="34" height="85" rx="3" fill="#e44d34" />
+          <rect x="174" y="92" width="34" height="40" rx="3" fill="#6c4fd8" />
+          <rect x="246" y="27" width="34" height="105" rx="3" fill="#d99a2b" />
+          <rect x="318" y="62" width="34" height="70" rx="3" fill="#5b8dc9" />
+          <rect x="390" y="37" width="34" height="95" rx="3" fill="#0e8a7d" />
+          <rect x="462" y="82" width="34" height="50" rx="3" fill="#e44d34" />
+          <rect x="534" y="17" width="34" height="115" rx="3" fill="#6c4fd8" />
+          <rect x="606" y="57" width="34" height="75" rx="3" fill="#d99a2b" />
+          <rect x="678" y="42" width="34" height="90" rx="3" fill="#5b8dc9" />
+          <rect x="750" y="87" width="34" height="45" rx="3" fill="#0e8a7d" />
+          <rect x="822" y="32" width="34" height="100" rx="3" fill="#e44d34" />
+          <rect x="894" y="67" width="34" height="65" rx="3" fill="#6c4fd8" />
+          <rect x="966" y="22" width="34" height="110" rx="3" fill="#d99a2b" />
+          <rect x="1038" y="72" width="34" height="60" rx="3" fill="#5b8dc9" />
+          <rect x="1110" y="52" width="34" height="80" rx="3" fill="#0e8a7d" />
+          <polyline points="47,69 119,39 191,84 263,19 335,54 407,29 479,74 551,9 623,49 695,34 767,79 839,24 911,59 983,14 1055,64 1127,44" fill="none" stroke="#e44d34" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" />
+          <circle cx="47" cy="69" r="5" fill="#ffffff" stroke="#e44d34" stroke-width="2.5" />
+          <circle cx="263" cy="19" r="5" fill="#ffffff" stroke="#e44d34" stroke-width="2.5" />
+          <circle cx="551" cy="9" r="5" fill="#ffffff" stroke="#e44d34" stroke-width="2.5" />
+          <circle cx="839" cy="24" r="5" fill="#ffffff" stroke="#e44d34" stroke-width="2.5" />
+          <circle cx="1127" cy="44" r="5" fill="#ffffff" stroke="#e44d34" stroke-width="2.5" />
+          <circle cx="210" cy="22" r="4.5" fill="#d99a2b" opacity="0.9" />
+          <circle cx="470" cy="14" r="4.5" fill="#0e8a7d" opacity="0.9" />
+          <circle cx="730" cy="24" r="4.5" fill="#6c4fd8" opacity="0.9" />
+          <circle cx="980" cy="12" r="4.5" fill="#e44d34" opacity="0.9" />
+          <circle cx="1150" cy="26" r="4.5" fill="#5b8dc9" opacity="0.9" />
+        </svg>
+        <figcaption>Three studies · 398k records &amp; groups · SPSS + AI-assisted review</figcaption>
+      </figure>
+    </section>
+
+    <aside class="ticker" aria-label="Portfolio summary">
+      <div class="wrap ticker-inner">
+        <div class="fact"><strong>3</strong><span>completed studies</span></div>
+        <div class="fact"><strong>398k</strong><span>records &amp; groups analyzed</span></div>
+        <div class="fact"><strong>SPSS</strong><span>statistical workflow</span></div>
+        <div class="fact"><strong>AI</strong><span>review + visualization</span></div>
+      </div>
+    </aside>
+
+    <section class="projects" id="projects">
+      <div class="wrap">
+        <header class="section-head">
+          <p class="overline">Selected work</p>
+          <div>
+            <h2>Three questions.<br>Three rigorous answers.</h2>
+            <p>Each case study pairs the right statistical test with effect-size interpretation, transparent limitations, and a practical conclusion.</p>
+          </div>
+        </header>
+
+        <div class="project-tabs" role="tablist" aria-label="Select a project">
+          <button class="project-tab" id="tab-student" role="tab" aria-controls="project-student" aria-selected="true" data-target="project-student">
+            <span class="num">01 / STUDENT WELLBEING</span>
+            <strong>Lifestyle, mental health &amp; stress</strong>
+          </button>
+          <button class="project-tab" id="tab-ai" role="tab" aria-controls="project-ai" aria-selected="false" data-target="project-ai">
+            <span class="num">02 / ORGANIZATIONAL AI</span>
+            <strong>Training, maturity &amp; productivity</strong>
+          </button>
+          <button class="project-tab" id="tab-toronto" role="tab" aria-controls="project-toronto" aria-selected="false" data-target="project-toronto">
+            <span class="num">03 / TORONTO EDUCATION</span>
+            <strong>Education, gender &amp; income</strong>
+          </button>
+        </div>
+
+        <article class="project-panel active" id="project-student" role="tabpanel" aria-labelledby="tab-student">
+          <div class="project-sheet">
+            <header class="project-hero">
+              <div>
+                <p class="project-kicker mono">Project 01 · Prepared Oct 2026</p>
+                <h3>Student lifestyle, mental health, and stress</h3>
+                <p class="project-lede">A statistical study of how sleep, study time, social-media use, physical activity, and gender relate to student stress across 100,000 records.</p>
+              </div>
+              <div class="project-meta">
+                <div class="meta-row"><span>Dataset</span><strong>100,000 student records</strong></div>
+                <div class="meta-row"><span>Methods</span><strong>Descriptives, t-test, Pearson r, regression</strong></div>
+                <div class="meta-row"><span>Outcome</span><strong>Stress level</strong></div>
+                <div class="meta-row"><span>Format</span><strong>Portfolio-ready report</strong></div>
+              </div>
+            </header>
+
+            <div class="project-body">
+              <section class="narrative">
+                <p class="body-label mono">Research story</p>
+                <h4>What most clearly tracks with student stress?</h4>
+                <p>The analysis moved from baseline distributions to group comparison, correlation, and adjusted prediction. With a very large sample, the interpretation deliberately prioritizes effect magnitude over p-values alone.</p>
+                <ul class="finding-list">
+                  <li><span class="marker">01</span><span><strong>Activity was the strongest correlate.</strong>Physical activity had the largest bivariate association with stress (r = −.297).</span></li>
+                  <li><span class="marker">02</span><span><strong>Sleep remained important after adjustment.</strong>Its standardized regression effect was β = −.280.</span></li>
+                  <li><span class="marker">03</span><span><strong>Gender was not a useful separator.</strong>Mean stress was 4.13 for both groups; estimated d ≈ −.002.</span></li>
+                  <li><span class="marker">04</span><span><strong>The model informs, but does not diagnose.</strong>R² = .167, leaving most individual variation unexplained.</span></li>
+                </ul>
+              </section>
+              <section class="visuals">
+                <p class="body-label mono">Key evidence</p>
+                <div class="metric-grid">
+                  <div class="metric"><strong>100,000</strong><span>records</span></div>
+                  <div class="metric"><strong>16.7%</strong><span>stress variance explained</span></div>
+                  <div class="metric"><strong>4.13</strong><span>mean stress score</span></div>
+                </div>
+                <div class="chart-card">
+                  <div class="chart-title"><strong>Lifestyle relationships with stress</strong><span>Pearson r</span></div>
+                  <svg id="stress-chart" viewBox="0 0 560 280" role="img" aria-label="Horizontal bar chart of correlations with stress"></svg>
+                  <p class="chart-note">Bars encode absolute magnitude from a zero baseline; arrows preserve the negative or positive direction.</p>
+                </div>
+                <div class="chart-card" style="margin-top:18px">
+                  <div class="chart-title"><strong>Correlation heatmap</strong><span>Pearson r</span></div>
+                  <img src="project01-correlation-heatmap.png" alt="Correlation heatmap of student lifestyle variables and stress level" style="display:block;width:100%;height:auto">
+                  <p class="chart-note">Physical activity (r = −.297) and sleep duration (r = −.281) show the strongest links with stress; study hours and social-media use are near zero.</p>
+                </div>
+              </section>
+            </div>
+            <footer class="project-actions">
+              <a class="download" href="project01-student-lifestyle-stress-report.docx" download>Download full report · DOCX</a>
+              <a class="download secondary" href="project01-student-lifestyle-stress-data.sav" download>Download raw dataset · SPSS</a>
+            </footer>
+          </div>
+        </article>
+
+        <article class="project-panel" id="project-ai" role="tabpanel" aria-labelledby="tab-ai" hidden>
+          <div class="project-sheet">
+            <header class="project-hero">
+              <div>
+                <p class="project-kicker mono">Project 02 · Prepared Oct 2026</p>
+                <h3>AI training, maturity, and productivity</h3>
+                <p class="project-lede">An econometric analysis of 150,000 observations nested within 10,000 companies, testing how training and investment relate to AI capability and operational productivity.</p>
+              </div>
+              <div class="project-meta">
+                <div class="meta-row"><span>Dataset</span><strong>150,000 panel observations</strong></div>
+                <div class="meta-row"><span>Structure</span><strong>10,000 companies · 2023–2026</strong></div>
+                <div class="meta-row"><span>Methods</span><strong>Clustered OLS, Welch ANOVA, VIF</strong></div>
+                <div class="meta-row"><span>Outcomes</span><strong>AI maturity + productivity</strong></div>
+              </div>
+            </header>
+
+            <div class="project-body">
+              <section class="narrative">
+                <p class="body-label mono">Research story</p>
+                <h4>Does AI training become operational value?</h4>
+                <p>Because companies appear repeatedly in the data, the analysis used company-clustered standard errors. Nested models then separated training’s direct association from the capability and implementation pathways around it.</p>
+                <ul class="finding-list">
+                  <li><span class="marker">01</span><span><strong>Training strongly tracked maturity.</strong>The bivariate relationship was r = .822; the adjusted extended effect remained β = .385.</span></li>
+                  <li><span class="marker">02</span><span><strong>Maturity was the productivity bridge.</strong>It was the dominant extended-model predictor at β = .519.</span></li>
+                  <li><span class="marker">03</span><span><strong>Execution quality mattered.</strong>Task automation was positive (β = .215), while failure rate was negative (β = −.133).</span></li>
+                  <li><span class="marker">04</span><span><strong>Context did not determine destiny.</strong>Industry explained 4.3% of maturity variation—far less than investment and capability factors.</span></li>
+                </ul>
+              </section>
+              <section class="visuals">
+                <p class="body-label mono">Key evidence</p>
+                <div class="metric-grid">
+                  <div class="metric"><strong>150,000</strong><span>observations</span></div>
+                  <div class="metric"><strong>10,000</strong><span>companies</span></div>
+                  <div class="metric"><strong>58.6%</strong><span>productivity variance explained</span></div>
+                </div>
+                <div class="chart-card">
+                  <div class="chart-title"><strong>Extended productivity model</strong><span>standardized β</span></div>
+                  <svg id="productivity-chart" viewBox="0 0 560 320" role="img" aria-label="Horizontal bar chart of standardized productivity model coefficients"></svg>
+                  <p class="chart-note">The zero line separates positive and negative adjusted associations. Small coefficients are shown, not omitted.</p>
+                </div>
+                <div class="chart-card" style="margin-top:18px">
+                  <div class="chart-title"><strong>Training hours and AI maturity</strong><span>r = .822</span></div>
+                  <img src="project02-training-maturity-hexbin.png" alt="Hexbin scatter plot of AI training hours against AI maturity score with a fitted line" style="display:block;width:100%;height:auto">
+                  <p class="chart-note">Each hexagon counts companies; brighter yellow means more companies. The red line is the fitted trend: more training hours track higher maturity.</p>
+                </div>
+              </section>
+            </div>
+            <footer class="project-actions">
+              <a class="download" href="project02-ai-training-productivity-report.pdf" download>Download full report · PDF</a><a class="download secondary" href="https://www.kaggle.com/datasets/mohankrishnathalla/global-ai-adoption-and-workforce-impact-dataset" target="_blank" rel="noopener">Download raw dataset · Kaggle</a>
+            </footer>
+          </div>
+        </article>
+        <article class="project-panel" id="project-toronto" role="tabpanel" aria-labelledby="tab-toronto" hidden>
+          <div class="project-sheet">
+            <header class="project-hero">
+              <div>
+                <p class="project-kicker mono">Project 03 · Prepared Oct 2026</p>
+                <h3>Education, gender, and income in Toronto</h3>
+                <p class="project-lede">A census-data study of how education and gender relate to median employment income in Toronto — and how the pattern changed between 2019 and 2020.</p>
+              </div>
+              <div class="project-meta">
+                <div class="meta-row"><span>Source</span><strong>StatCan 2021 Census, Table 98-10-0410-01</strong></div>
+                <div class="meta-row"><span>Sample</span><strong>147,840 aggregate groups · Toronto CMA, age 25–64</strong></div>
+                <div class="meta-row"><span>Methods</span><strong>Group medians, percentage gaps, change rates</strong></div>
+                <div class="meta-row"><span>Outcome</span><strong>Median employment income ($)</strong></div>
+              </div>
+            </header>
+            <div class="project-body">
+              <section class="narrative">
+                <p class="body-label mono">Research story</p>
+                <h4>Does the education premium hold for everyone?</h4>
+                <p>The data is aggregated: each row is a demographic group, not one person — so the analysis compares group medians with percentage differences instead of individual-level tests. Work activity is classified in 2020 for both income years, following Statistics Canada's definition.</p>
+                <ul class="finding-list">
+                  <li><span class="marker">01</span><span><strong>The bachelor&rsquo;s premium widened in 2020.</strong> Bachelor&rsquo;s holders earned 41.1% more than high-school graduates in 2019, and 46.7% more in 2020.</span></li>
+                  <li><span class="marker">02</span><span><strong>The gender gap narrowed in all 11 groups — but stayed uneven.</strong> It was widest among apprenticeship certificate holders (42.7% in 2019, 40.1% in 2020) and smallest for doctorate holders in 2020 (9.6%). More education did not consistently mean a smaller gap.</span></li>
+                  <li><span class="marker">03</span><span><strong>Growth was uneven across the ladder.</strong> Median incomes rose at every level in 2020, from +1.7% (no certificate) to +8.7% (bachelor&rsquo;s).</span></li>
+                  <li><span class="marker">04</span><span><strong>The ladder isn&rsquo;t strictly linear.</strong> In 2019, apprenticeship certificates ($73,000) out-earned college diplomas ($60,800).</span></li>
+                </ul>
+              </section>
+              <section class="visuals">
+                <p class="body-label mono">Key evidence</p>
+                <div class="metric-grid">
+                  <div class="metric"><strong>147,840</strong><span>demographic groups</span></div>
+                  <div class="metric"><strong>46.7%</strong><span>bachelor&rsquo;s premium (2020)</span></div>
+                  <div class="metric"><strong>40.1%</strong><span>widest gender gap (2020)</span></div>
+                </div>
+                <div class="chart-card">
+                  <div class="chart-title"><strong>Gender income gap by education, 2019</strong><span>gap = (Men &minus; Women) &divide; Men &times; 100</span></div>
+                  <img src="project03-gender-gap-2019.png" alt="Clustered bar chart of median employment income for men and women across 11 education levels, Toronto 2019" style="display:block;width:100%;height:auto">
+                  <p class="chart-note">Each bar pair compares group medians for men and women at the same education level. In the final verified report, the gap narrowed in every group in 2020. Source: StatCan 2021 Census, Table 98-10-0410-01.</p>
+                </div>
+                <div class="chart-card" style="margin-top:18px">
+                  <div class="chart-title"><strong>Median income by education, 2019 vs 2020</strong><span>full-year full-time workers, age 25–64</span></div>
+                  <img src="project03-income-2019-vs-2020.png" alt="Clustered bar chart of median employment income by education level in 2019 and 2020, Toronto" style="display:block;width:100%;height:auto">
+                  <p class="chart-note">The bachelor&rsquo;s premium over high school grew from 41.1% to 46.7% — a descriptive comparison; the data can&rsquo;t establish the pandemic as the cause.</p>
+                </div>
+              </section>
+            </div>
+            <footer class="project-actions">
+              <a class="download" href="project03-toronto-education-income-report.pdf" download="project03-toronto-education-income-report.pdf">Download the full report · PDF</a>
+              <a class="download" href="toronto_edu_income_sav.zip" download="toronto_edu_income_sav.zip">Download raw dataset · SPSS (.sav in ZIP)</a>
+            </footer>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="method" id="method">
+      <div class="wrap method-grid">
+        <div>
+          <p class="overline">Working method</p>
+          <h2>From raw rows to a defensible story.</h2>
+          <p class="method-intro">The workflow combines statistical discipline with AI-assisted review. Tools support the process; the analytical question and interpretation stay central.</p>
+        </div>
+        <div class="steps">
+          <article class="step"><div><h3>Frame the question</h3><p>Translate a broad topic into variables, outcomes, hypotheses, and decision-relevant research questions.</p></div></article>
+          <article class="step"><div><h3>Prepare public data</h3><p>Import Kaggle datasets into SPSS, inspect structure and quality, and exclude identifiers from inference.</p></div></article>
+          <article class="step"><div><h3>Select the statistical tests</h3><p>Use the variable types, assumptions, and research question to choose comparisons, correlations, and regression models.</p></div></article>
+          <article class="step"><div><h3>Run and inspect in SPSS</h3><p>Produce descriptive and inferential outputs, check assumptions, and distinguish statistical from practical significance.</p></div></article>
+          <article class="step"><div><h3>Refine with AI tools</h3><p>Use Gemini as a test-selection aid, compare the methods suggested by Claude and Julius AI, and use Julius AI to clean outputs, strengthen visualizations, and revise the narrative.</p></div></article>
+          <article class="step"><div><h3>Communicate with restraint</h3><p>Report effect sizes, uncertainty, model limits, and the difference between association and causation.</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="wrap contact-grid">
+        <p class="overline">Contact</p>
+        <div>
+          <h2>Let’s connect.</h2>
+          <div class="contact-links">
+            <a class="contact-link" href="mailto:shirin.bashiri77@gmail.com">
+              <span class="mono">Email</span>
+              <strong>shirin.bashiri77@gmail.com</strong>
+            </a>
+            <a class="contact-link" href="https://www.linkedin.com/in/shirin-bashiri-26635a2b8?utm_source=share_via&amp;utm_content=profile&amp;utm_medium=member_ios" target="_blank" rel="noopener noreferrer">
+              <span class="mono">LinkedIn</span>
+              <strong>View Shirin Bashiri’s profile</strong>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="about">
+      <div class="wrap about-grid">
+        <div>
+          <p class="overline">About the work</p>
+          <img class="about-photo" src="shirin-bashiri.jpg" alt="Shirin Bashiri" width="1600" height="1600" />
+        </div>
+        <div>
+          <blockquote>“I turn complex datasets into clear statistical evidence—without letting significance outrun meaning.”</blockquote>
+          <footer>Shirin Bashiri · شیرین بشیری · SPSS analysis, AI-assisted review, and research communication</footer>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    (function () {
+      var tabs = Array.prototype.slice.call(document.querySelectorAll('.project-tab'));
+      var panels = Array.prototype.slice.call(document.querySelectorAll('.project-panel'));
+
+      tabs.forEach(function (tab, index) {
+        tab.addEventListener('click', function () {
+          tabs.forEach(function (item) { item.setAttribute('aria-selected', 'false'); });
+          panels.forEach(function (panel) { panel.classList.remove('active'); panel.hidden = true; });
+          tab.setAttribute('aria-selected', 'true');
+          var target = document.getElementById(tab.getAttribute('data-target'));
+          target.hidden = false;
+          target.classList.add('active');
+        });
+        tab.addEventListener('keydown', function (event) {
+          if (event.key !== 'ArrowRight' && event.key !== 'ArrowLeft') return;
+          event.preventDefault();
+          var next = event.key === 'ArrowRight' ? (index + 1) % tabs.length : (index - 1 + tabs.length) % tabs.length;
+          tabs[next].focus();
+          tabs[next].click();
+        });
+      });
+
+      var stressData = [
+        { label: 'Physical activity', value: -0.297 },
+        { label: 'Sleep duration', value: -0.281 },
+        { label: 'Study hours', value: 0.009 },
+        { label: 'Social media', value: 0.002 }
+      ];
+
+      var productivityData = [
+        { label: 'AI maturity', value: 0.519 },
+        { label: 'Task automation', value: 0.215 },
+        { label: 'AI failure rate', value: -0.133 },
+        { label: 'AI budget', value: -0.007 },
+        { label: 'AI training', value: -0.003 }
+      ];
+
+      function stressChart(svg, data) {
+        var left = 150, top = 30, width = 365, row = 48, max = 0.30;
+        var html = '';
+        [0, .1, .2, .3].forEach(function (tick) {
+          var x = left + (tick / max) * width;
+          html += '<line class="gridline" x1="' + x + '" y1="18" x2="' + x + '" y2="230"></line>';
+          html += '<text class="axis-label" x="' + x + '" y="252" text-anchor="middle">' + tick.toFixed(1) + '</text>';
+        });
+        data.forEach(function (d, i) {
+          var y = top + i * row;
+          var barWidth = (Math.abs(d.value) / max) * width;
+          var klass = d.value < 0 ? 'bar-negative' : 'bar-positive';
+          var sign = d.value < 0 ? '↓ ' : '↑ ';
+          html += '<text class="value-label" x="0" y="' + (y + 17) + '">' + d.label + '</text>';
+          html += '<rect class="' + klass + '" x="' + left + '" y="' + y + '" width="' + Math.max(barWidth, 2) + '" height="23"></rect>';
+          html += '<text class="value-label" x="' + (left + Math.max(barWidth, 2) + 7) + '" y="' + (y + 17) + '">' + sign + Math.abs(d.value).toFixed(3) + '</text>';
+        });
+        html += '<text class="axis-label" x="' + (left + width / 2) + '" y="274" text-anchor="middle">absolute correlation magnitude</text>';
+        svg.innerHTML = html;
+      }
+
+      function centeredChart(svg, data) {
+        var left = 150, top = 30, width = 370, row = 48, min = -0.15, max = 0.55;
+        var scale = function (value) { return left + ((value - min) / (max - min)) * width; };
+        var zero = scale(0);
+        var html = '';
+        [-.1, 0, .1, .2, .3, .4, .5].forEach(function (tick) {
+          var x = scale(tick);
+          html += '<line class="gridline" x1="' + x + '" y1="18" x2="' + x + '" y2="270"></line>';
+          html += '<text class="axis-label" x="' + x + '" y="296" text-anchor="middle">' + tick.toFixed(1) + '</text>';
+        });
+        data.forEach(function (d, i) {
+          var y = top + i * row;
+          var x = d.value < 0 ? scale(d.value) : zero;
+          var barWidth = Math.abs(scale(d.value) - zero);
+          var klass = d.value < 0 ? 'bar-negative' : 'bar-positive';
+          var labelX = d.value < 0 ? x - 7 : x + barWidth + 7;
+          var anchor = d.value < 0 ? 'end' : 'start';
+          html += '<text class="value-label" x="0" y="' + (y + 17) + '">' + d.label + '</text>';
+          html += '<rect class="' + klass + '" x="' + x + '" y="' + y + '" width="' + Math.max(barWidth, 2) + '" height="23"></rect>';
+          html += '<text class="value-label" x="' + labelX + '" y="' + (y + 17) + '" text-anchor="' + anchor + '">' + (d.value > 0 ? '+' : '') + d.value.toFixed(3) + '</text>';
+        });
+        svg.innerHTML = html;
+      }
+
+      stressChart(document.getElementById('stress-chart'), stressData);
+      centeredChart(document.getElementById('productivity-chart'), productivityData);
+    }());
+  </script>
+</body>
+</html>
